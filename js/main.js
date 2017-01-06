@@ -16,11 +16,32 @@
 //});
 
 
-var jorneyApp = angular.module("jorneyApp", [])
-    .constant('ACCESS_PARAMS', {
-        APP_ID: '4f340f09',
-        APP_KEY: 'f6c1a49618dca9f4bb12c9455c03d8aa'
-    })
-
-    .controller("JorneyController", ["$scope", "$http", "$timeout", "ACCESS_PARAMS", JorneyCtrl]);
-function JorneyCtrl($scope, $http, $timeout, ACCESS_PARAMS) { }
+var aliasApp = angular.module("aliasApp", [])
+    .controller("startController", ["$scope", "$http", startCtrl]);
+function startCtrl($scope, $http) {
+    var teamForm = document.getElementById('teamForm');
+    var teamCounter = 2;
+    $scope.Teams = [];
+    $scope.Teams[0] = {  
+        name: "Команда 1",
+        score: 0
+    }
+    $scope.Teams[1] = {
+        name: "Команда 2",
+        score: 0
+    }
+    $scope.addTeam = function () {
+        teamCounter++;
+        var newTeamDomElement = document.createElement('input');
+        newTeamDomElement.setAttribute('class', 'form-control');
+        newTeamDomElement.setAttribute('type', 'text');
+        newTeamDomElement.setAttribute('ng-model', 'Teams[' + (teamCounter - 1) + '].name');    
+        newTeamDomElement.setAttribute('value', 'Команда ' + teamCounter);
+        var team = {
+            name: "Команда " + teamCounter,
+            score: 0
+        };
+        $scope.Teams.push(team);
+        teamForm.appendChild(newTeamDomElement);
+    }  
+}

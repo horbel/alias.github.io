@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html ng-app="">
+<html ng-app="aliasApp">
 <head>
     <title>Alias</title>
     <meta charset="utf-8" />
@@ -7,14 +7,14 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
 </head>
-<body ng-controller="JorneyController">
+<body ng-controller="startController">
    <div class="wrapper">
-   <form class="teamForm">
-       <input type="text" class="form-control" placeholder="Команда 1">
-       <input type="text" class="form-control" placeholder="Команда 2">       
+   <form class="teamForm" id="teamForm">
+       <input type="text" class="form-control" ng-model="Teams[0].name">
+       <input type="text" class="form-control" ng-model="Teams[1].name">       
    </form>  
        <div class="controlBnts">
-           <a class="btn btn-default addTeam">Добавить команду</a>         
+           <a class="btn btn-default addTeam" ng-click="addTeam()">Добавить команду</a>         
        </div>
        <a class="btn btn-success startGame">Старт!</a>
    </div>
