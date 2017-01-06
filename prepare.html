@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html ng-app="">
+<html>
 <head>
     <title>Alias</title>
     <meta charset="utf-8" />
@@ -7,18 +7,15 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
 </head>
-<body ng-controller="JorneyController">
-   <div class="wrapper">
-   <form class="teamForm">
-       <input type="text" class="form-control" placeholder="Команда 1">
-       <input type="text" class="form-control" placeholder="Команда 2">       
-   </form>  
-       <div class="controlBnts">
-           <a class="btn btn-default addTeam">Добавить команду</a>         
-       </div>
-       <a class="btn btn-success startGame">Старт!</a>
-   </div>
-   
+<body>
+    <div class="wrapper">
+        <div class="teamForm" ng-repeat="team in teams">
+            <div class="form-control clearfix teamName" ng-bind="team.Name">Teema1 -<span class="score" ng-bind="team.Score">23</span></div>          
+        </div>
+        <a class="btn btn-success startGame">Next round!</a>
+    </div>
+
+
 
     <script src="Scripts/jquery-1.9.1.min.js"></script>
     <script src="Scripts/angular.min.js"></script>
