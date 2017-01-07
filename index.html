@@ -7,14 +7,13 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
 </head>
-<body ng-controller="startController">
+<body ng-controller="startController as vm">
    <div class="wrapper">
-   <form class="teamForm" id="teamForm">
-       <input type="text" class="form-control" ng-model="Teams[0].name">
-       <input type="text" class="form-control" ng-model="Teams[1].name">       
+   <form name="vm.teamForm" class="teamForm" id="teamForm">
+       <input ng-repeat="team in vm.teams" type="text" class="form-control" ng-model="team.name">
    </form>  
        <div class="controlBnts">
-           <a class="btn btn-default addTeam" ng-click="addTeam()">Добавить команду</a>         
+           <a class="btn btn-default addTeam" ng-click="vm.addTeam()">Добавить команду</a>         
        </div>
        <a class="btn btn-success startGame">Старт!</a>
    </div>
