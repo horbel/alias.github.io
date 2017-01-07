@@ -1,6 +1,9 @@
-﻿/// <reference path="../Scripts/angular.js" />
+﻿/// <reference path="../startPage.html" />
+/// <reference path="../startPage.html" />
+/// <reference path="../Scripts/angular.js" />
 /// <reference path="../Scripts/jquery.touchSwipe.js" />
 /// <reference path="../Scripts/jquery-1.9.1.js" />
+/// <reference path="../Scripts/angular-ui-router.js" />
 
 
 
@@ -22,8 +25,46 @@
 //});
 
 
-var aliasApp = angular.module("aliasApp", [])
+//angular
+//       .module('app', ['ui.router', 'uiGmapgoogle-maps'])
+//       .config(uiRouterConfig);
+
+//uiRouterConfig.$inject = ['$urlRouterProvider', '$stateProvider'];
+
+//function uiRouterConfig($urlRouterProvider, $stateProvider) {
+//    $urlRouterProvider.otherwise('/');
+
+//    $stateProvider
+//        .state('Home', {
+//            url: '/',
+//            templateUrl: 'templates/mainTemplate.html'
+//        })
+//        .state('Shop', {
+//            url: '/shop/:name',
+//            templateUrl: 'templates/goodsTemplate.html',
+//            controller: 'ShopDetailCtrl',
+//            controllerAs: 'detail'
+//        })
+//}
+
+
+
+
+
+var aliasApp = angular.module("aliasApp", ['ui.router'])
+    .config(uiRouterConfig) 
     .controller("startController", startCtrl);
+
+uiRouterConfig.$inject = ['$urlRouterProvider', '$stateProvider'];
+
+function uiRouterConfig($urlRouterProvider, $stateProvider) {
+    $stateProvider
+        .state('startPage', {
+        url: '',
+        templateUrl: 'startPage.html',
+    })
+}
+
 function startCtrl() {
     var vm = this;
 
@@ -34,11 +75,11 @@ function startCtrl() {
 
     vm.teams = [
         {
-            name: "Команда",
+            name: "Команда 1",
             score: 0
         },
         {
-            name: "Команда",
+            name: "Команда 2",
             score: 0
         }
     ];

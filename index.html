@@ -9,19 +9,14 @@
 </head>
 <body ng-controller="startController as vm">
    <div class="wrapper">
-   <form name="vm.teamForm" class="teamForm" id="teamForm">
-       <input ng-repeat="team in vm.teams" type="text" class="form-control" ng-model="team.name">
-   </form>  
-       <div class="controlBnts">
-           <a class="btn btn-default addTeam" ng-click="vm.addTeam()">Добавить команду</a>         
-       </div>
-       <a class="btn btn-success startGame">Старт!</a>
-   </div>
-   
+   <div ui-view></div>
+
+   </div>  
 
     <script src="Scripts/jquery-1.9.1.min.js"></script>
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/jquery.touchSwipe.min.js"></script>
+    <script src="Scripts/angular-ui-router.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

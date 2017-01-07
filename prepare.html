@@ -1,25 +1,5 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title>Alias</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/main.css" rel="stylesheet" />
-</head>
-<body>
-    <div class="wrapper">
-        <div class="teamForm" ng-repeat="team in teams">
+﻿        <div class="teamForm" ng-repeat="team in teams">
             <div class="form-control clearfix teamName" ng-bind="team.Name">Teema1 -<span class="score" ng-bind="team.Score">23</span></div>          
         </div>
         <a class="btn btn-success startGame">Next round!</a>
-    </div>
 
-
-
-    <script src="Scripts/jquery-1.9.1.min.js"></script>
-    <script src="Scripts/angular.min.js"></script>
-    <script src="Scripts/jquery.touchSwipe.min.js"></script>
-    <script src="js/main.js"></script>
-</body>
-</html>
