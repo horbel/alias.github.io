@@ -90,6 +90,10 @@ function startCtrl() {
     ];
 
     vm.addTeam = function () {
+        if (vm.teams.length >= 5) {
+            alert("Максимальное число команд: 5");
+            return;
+        }
         var team = angular.copy(teamObject);
         team.name += " " + (vm.teams.length + 1);
         vm.teams.push(team);
