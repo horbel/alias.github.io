@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html ng-app="aliasApp">
+<html >
 <head>
     <title>Alias</title>
     <meta charset="utf-8" />
@@ -7,16 +7,16 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
 </head>
-<body ng-controller="startController as vm">
+<body ng-app="aliasApp" ng-controller="startController as vm">
    <div class="wrapper">
-   <div ui-view></div>
+       <ng-view></ng-view>
 
    </div>  
 
     <script src="Scripts/jquery-1.9.1.min.js"></script>
     <script src="Scripts/angular.min.js"></script>
-    <script src="Scripts/jquery.touchSwipe.min.js"></script>
-    <script src="Scripts/angular-ui-router.js"></script>
+    <script src="Scripts/jquery.touchSwipe.min.js"></script> 
+    <script src="Scripts/angular-route.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

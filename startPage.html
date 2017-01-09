@@ -1,7 +1,7 @@
 ﻿<form name="vm.teamForm" class="teamForm" id="teamForm">
-    <input ng-repeat="team in vm.teams" type="text" class="form-control" ng-model="team.name">
+    <input ng-repeat="team in vm.teams" type="text" class="form-control teamName" ng-model="team.name">
 </form>
 <div class="controlBnts">
     <a class="btn btn-default addTeam" ng-click="vm.addTeam()">Добавить команду</a>
 </div>
-<a class="btn btn-success startGame">Старт!</a>
+<a class="btn btn-success startGame"  href="#/prepare">Старт!</a>

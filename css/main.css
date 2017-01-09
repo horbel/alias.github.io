@@ -15,7 +15,7 @@
 .teamForm {
     padding: 0 10px;
 }
-.teamForm input{
+.teamName{
     margin-bottom:3px;
 }
 .controlBnts {
@@ -34,9 +34,7 @@
     font-weight:bold;
     font-size:25px;
 }
-.startGame:hover{
-    
-}
+
 .addTeam {
     margin-top: 10px;
     width: 100%;

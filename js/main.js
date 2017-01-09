@@ -51,18 +51,23 @@
 
 
 
-var aliasApp = angular.module("aliasApp", ['ui.router'])
-    .config(uiRouterConfig) 
+var aliasApp = angular.module("aliasApp", ['ngRoute'])
+     .config(routeConfig)
     .controller("startController", startCtrl);
 
-uiRouterConfig.$inject = ['$urlRouterProvider', '$stateProvider'];
+//uiRouterConfig.$inject = ['$urlRouterProvider', '$stateProvider'];
 
-function uiRouterConfig($urlRouterProvider, $stateProvider) {
-    $stateProvider
-        .state('startPage', {
-        url: '',
-        templateUrl: 'startPage.html',
-    })
+function routeConfig($routeProvider) {
+    $routeProvider.when('/',
+         {
+             templateUrl: 'startPage.html',
+             controller: 'startController'
+         });
+    $routeProvider.when('/prepare',
+    {
+        templateUrl: 'prepare.html',
+        controller: 'startController'
+    });
 }
 
 function startCtrl() {
@@ -88,5 +93,5 @@ function startCtrl() {
         var team = angular.copy(teamObject);
         team.name += " " + (vm.teams.length + 1);
         vm.teams.push(team);
-    }  
+    }
 }

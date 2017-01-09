@@ -1,5 +1,5 @@
-﻿        <div class="teamForm" ng-repeat="team in teams">
-            <div class="form-control clearfix teamName" ng-bind="team.Name">Teema1 -<span class="score" ng-bind="team.Score">23</span></div>          
+﻿        <div class="teamForm">
+            <div ng-repeat="team in vm.teams" class="form-control clearfix teamName" ng-bind="team.name"><span class="score" ng-bind="team.Score">23</span></div>          
         </div>
         <a class="btn btn-success startGame">Next round!</a>
 
