@@ -62,12 +62,17 @@ function routeConfig($routeProvider) {
          {
              templateUrl: 'startPage.html',
              controller: 'startController'
-         });
-    $routeProvider.when('/prepare',
+         })
+   .when('/prepare',
     {
         templateUrl: 'prepare.html',
         controller: 'startController'
-    });
+    })
+   .when('/game',
+   {
+       templateUrl: 'game.html',
+       controller: 'startController'
+   });
 }
 
 function startCtrl() {
@@ -81,7 +86,7 @@ function startCtrl() {
     vm.teams = [
         {
             name: "Команда 1",
-            score: 0
+            score: 65
         },
         {
             name: "Команда 2",

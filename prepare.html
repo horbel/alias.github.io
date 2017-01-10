@@ -1,5 +1,9 @@
 ﻿        <div class="teamForm">
-            <div ng-repeat="team in vm.teams" class="form-control clearfix teamName" ng-bind="team.name"><span class="score" ng-bind="team.Score">23</span></div>          
+            <div ng-repeat="team in vm.teams" class="form-control clearfix teamName">
+                <div ng-bind="team.name" class="pull-left"></div> 
+                <div class="score pull-right" ng-bind="team.score"></div> 
+            </div>                   
+           
         </div>
-        <a class="btn btn-success startGame">Next round!</a>
+        <a class="btn btn-success startGame" href="#/game">Next round!</a>
 
