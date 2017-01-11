@@ -17,7 +17,14 @@
 }
 
 .teamName {
+    font-weight: bold;
+    font-size: 18px;
+    outline: none;
     margin-bottom: 3px;
+}
+div.teamName{
+    line-height:21px;
+    background: #dddddd;    
 }
 
 .controlBnts {
@@ -47,16 +54,6 @@
     color: red;
     font-weight: bold;
     font-size: 18px;
-}
-
-.teamName {
-    font-weight: bold;
-    font-size: 18px;
-    outline: none;
-}
-div.teamName{
-    line-height:20px;
-    background: #dddddd;    
 }
 
 /*game screen*/
