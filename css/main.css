@@ -130,8 +130,13 @@ div.teamName{
 }
 .iconQuestion{
     background:url(../imges/question.png) no-repeat;
-    width:20px;
-    height:20px;
+    background-size:contain;
+    width:40px;
+    height:40px;
     border-radius:50%;
-    
+    box-shadow: 0 2px 20px rgba(255,255,255,.25), 0 2px 1px rgba(255,255,255,.1),inset 0 0 20px rgba(255,255,255,.1),inset 0 1.8px 0px rgba(0,0,0,.6);
+    border:1px solid rgba(255,255,255,.4);
+    position:absolute;
+    bottom:130px;
+    left:45%;
 }
