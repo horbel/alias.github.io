@@ -23,7 +23,7 @@
     margin-bottom: 3px;
 }
 div.teamName{
-    line-height:22px;
+    line-height:20px;
     background: #dddddd;    
 }
 
@@ -54,6 +54,7 @@ div.teamName{
     color: red;
     font-weight: bold;
     font-size: 18px;
+    line-height:20px;
 }
 
 /*game screen*/
