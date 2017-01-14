@@ -118,22 +118,37 @@ function startCtrl() {
             right: 0
         };
         vm.currentWord = words[Math.floor(Math.random() * words.length)];
-        $(document).ready(function () {
-            $(".wordArea").swipe({
-                swipeLeft: function (event, direction, distance, duration) {
-                    vm.roundScore.left++;
-                    vm.currentWord = words[Math.floor(Math.random() * words.length)];               
-                },
-                swipeRight: function (event, direction, distance, duration) {
-                    vm.roundScore.plus++;
-                    vm.currentWord = words[Math.floor(Math.random() * words.length)];             
-                },
-                click: function (event, target) {
-                },
-                threshold: 100,
-                allowPageScroll: "vertical"
-            });
-        });
+   
+        //var wordArea = $(".wordArea");
+        //$(".wordArea").swipe({
+        //    swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
+        //        if (direction == 'left') {
+        //            vm.roundScore.minus++;
+        //            vm.currentWord = words[Math.floor(Math.random() * words.length)];
+        //        }
+        //        if (direction = 'right') {
+        //            vm.roundScore.plus++;
+        //            vm.currentWord = words[Math.floor(Math.random() * words.length)];
+        //        }
+        //    }     ,      
+                //swipeLeft: function (event, direction, distance, duration) {
+                //    vm.roundScore.minus++;
+                //    vm.currentWord = words[Math.floor(Math.random() * words.length)];               
+                //},
+                //swipeRight: function (event, direction, distance, duration) {
+                //    vm.roundScore.plus++;
+                //    vm.currentWord = words[Math.floor(Math.random() * words.length)];             
+                //},
+                //click: function (event, target) {
+                //},
+                //threshold: 100,
+            //allowPageScroll: "vertical"
+           // threshold:0
+           
+    }
+
+    vm.changeWord = function () {
+        vm.currentWord = words[Math.floor(Math.random() * words.length)];
     }
     vm.roundScore = {
         minus: 0,
