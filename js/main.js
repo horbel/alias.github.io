@@ -77,7 +77,8 @@ function routeConfig($routeProvider) {
 
 function startCtrl() {
     var vm = this;
-
+    var words;
+    vm.currentWord = '';
     var teamObject = {
         name: "Команда",
         score: 0
@@ -103,4 +104,44 @@ function startCtrl() {
         team.name += " " + (vm.teams.length + 1);
         vm.teams.push(team);
     }
+
+    vm.selectWords = function selectWords() {
+        $.get('words.txt', function (data) {
+            //split on new lines
+            words = data.split('\n');
+        });
+    }
+    //round phase
+    vm.roundStart = function (team) {
+        vm.roundScore = {
+            left: 0,
+            right: 0
+        };
+        vm.currentWord = words[Math.floor(Math.random() * words.length)];
+        $(document).ready(function () {
+            $(".wordArea").swipe({
+                swipeLeft: function (event, direction, distance, duration) {
+                    vm.roundScore.left++;
+                    vm.currentWord = words[Math.floor(Math.random() * words.length)];               
+                },
+                swipeRight: function (event, direction, distance, duration) {
+                    vm.roundScore.plus++;
+                    vm.currentWord = words[Math.floor(Math.random() * words.length)];             
+                },
+                click: function (event, target) {
+                },
+                threshold: 100,
+                allowPageScroll: "vertical"
+            });
+        });
+    }
+    vm.roundScore = {
+        minus: 0,
+        plus: 0
+    };
+
+    
+
+
+    
 }

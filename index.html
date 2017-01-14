@@ -8,7 +8,7 @@
     <link href="css/main.css" rel="stylesheet" />
 </head>
 <body ng-app="aliasApp" ng-controller="startController as vm">
-   <div class="wrapper">
+   <div class="wrapper" ng-init="vm.selectWords()">
        <ng-view></ng-view>
 
    </div>  
