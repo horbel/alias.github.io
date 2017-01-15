@@ -75,7 +75,7 @@ function routeConfig($routeProvider) {
 }
 
 
-function startCtrl() {
+function startCtrl($interval) {
     var vm = this;
     var words;
     vm.currentWord = '';
@@ -111,14 +111,16 @@ function startCtrl() {
     }
 
     vm.selectWords = function selectWords() {
-        $.get('words.txt', function (data) {
+        $.get('appdata/words.txt', function (data) {
             //split on new lines
             words = data.split('\n');
         });
     }
     //round phase
     vm.roundStart = function (team) {
-        
+        var audioTick = new Audio('appdata/tick.mp3');
+        var audioTimeUp = new Audio('appdata/timeup.mp3');
+        vm.seconds = 0;
         var tryCount = 0;
         vm.roundScore = {
             minus: 0,
@@ -132,23 +134,37 @@ function startCtrl() {
             if (tryCount % 2 == 0) {
                 vm.roundScore.minus++;
                 $('.minus').css('color', '#cb5858');
-            }               
+            }
             getNextWord();
         };
         vm.swipeRight = function () {
             vm.roundScore.plus++;
             getNextWord();
-        };                 
-    }
+        };
+        var timerPromise = $interval(mycode, 1000);
 
-   
+        function mycode() {
+            vm.seconds++;
+            if (vm.seconds >= 20) {
+                console.log('time is up');
+                $interval.cancel(timerPromise);
+                audioTick.pause();
+                audioTimeUp.play();
+                $('#timeUpModal').modal('show');
+            }
+            if (vm.seconds == 10) {
+                $('.timer').css('color', '#cb5858');
+                audioTick.play();
+            }
+        }
+    }
 
     function getNextWord() {
         vm.currentWord = words[Math.floor(Math.random() * words.length)];
-    }  
+    }
 
     vm.test = function () {
         console.log('left-angular');
     }
-
 }
+

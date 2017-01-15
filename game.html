@@ -1,4 +1,4 @@
-﻿<h2 class="timer">60</h2>
+﻿<h2 class="timer" ng-bind="vm.seconds"></h2>
 
 <div class="hintWrapper">
     <div class="hint">
@@ -14,20 +14,14 @@
 
 <div class="iconQuestion"></div>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#timeUpModal">
-    time up
-</button>
-
 <h4 class="alertMessage">У Вас осталось 2 подсказки</h4>
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="timeUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title wordDefinition" id="exampleModalLabel">Бульдозер</h3>
+                <h3 class="modal-title wordDefinition" id="exampleModalLabel" ng-bind="vm.currentWord"></h3>
             </div>
             <div class="modal-body">
                 <div ng-repeat="team in vm.teams" class="form-control clearfix teamName">
