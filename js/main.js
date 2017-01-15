@@ -50,8 +50,7 @@
 
 
 
-
-var aliasApp = angular.module("aliasApp", ['ngRoute'])
+var aliasApp = angular.module("aliasApp", ['ngRoute', 'swipe'])
      .config(routeConfig)
     .controller("startController", startCtrl);
 
@@ -75,6 +74,7 @@ function routeConfig($routeProvider) {
    });
 }
 
+
 function startCtrl() {
     var vm = this;
     var words;
@@ -95,6 +95,11 @@ function startCtrl() {
         }
     ];
 
+    vm.roundScore = {
+        minus: 0,
+        plus: 0
+    };
+
     vm.addTeam = function () {
         if (vm.teams.length >= 5) {
             alert("Максимальное число команд: 5");
@@ -113,50 +118,37 @@ function startCtrl() {
     }
     //round phase
     vm.roundStart = function (team) {
+        
+        var tryCount = 0;
         vm.roundScore = {
-            left: 0,
-            right: 0
+            minus: 0,
+            plus: 0
         };
-        vm.currentWord = words[Math.floor(Math.random() * words.length)];
+        getNextWord();
+
+        vm.swipeLeft = function () {
+            tryCount++;
+            $('.minus').css('color', '#aaac08');
+            if (tryCount % 2 == 0) {
+                vm.roundScore.minus++;
+                $('.minus').css('color', '#cb5858');
+            }               
+            getNextWord();
+        };
+        vm.swipeRight = function () {
+            vm.roundScore.plus++;
+            getNextWord();
+        };                 
+    }
+
    
-        //var wordArea = $(".wordArea");
-        //$(".wordArea").swipe({
-        //    swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
-        //        if (direction == 'left') {
-        //            vm.roundScore.minus++;
-        //            vm.currentWord = words[Math.floor(Math.random() * words.length)];
-        //        }
-        //        if (direction = 'right') {
-        //            vm.roundScore.plus++;
-        //            vm.currentWord = words[Math.floor(Math.random() * words.length)];
-        //        }
-        //    }     ,      
-                //swipeLeft: function (event, direction, distance, duration) {
-                //    vm.roundScore.minus++;
-                //    vm.currentWord = words[Math.floor(Math.random() * words.length)];               
-                //},
-                //swipeRight: function (event, direction, distance, duration) {
-                //    vm.roundScore.plus++;
-                //    vm.currentWord = words[Math.floor(Math.random() * words.length)];             
-                //},
-                //click: function (event, target) {
-                //},
-                //threshold: 100,
-            //allowPageScroll: "vertical"
-           // threshold:0
-           
-    }
 
-    vm.changeWord = function () {
+    function getNextWord() {
         vm.currentWord = words[Math.floor(Math.random() * words.length)];
+    }  
+
+    vm.test = function () {
+        console.log('left-angular');
     }
-    vm.roundScore = {
-        minus: 0,
-        plus: 0
-    };
 
-    
-
-
-    
 }

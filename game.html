@@ -6,10 +6,10 @@
     </div>
 </div>
 
-<div class="wordArea" ng-click="vm.changeWord()">
-    <h4 class="minus" ng-bing="vm.roundScore.minus"></h4>
+<div class="wordArea" ng-click="vm.changeWord()" ng-swipe-left="vm.swipeLeft()" ng-swipe-right="vm.swipeRight()">
+    <h4 class="minus" ng-bind="vm.roundScore.minus"></h4>
     <h3 class="wordDefinition" ng-bind="vm.currentWord"></h3>
-    <h4 class="plus" ng-bing="vm.roundScore.plus"></h4>
+    <h4 class="plus" ng-bind="vm.roundScore.plus"></h4>
 </div>
 
 <div class="iconQuestion"></div>
