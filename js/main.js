@@ -76,8 +76,6 @@ function routeConfig($routeProvider) {
 
 
 function startCtrl($interval) {
-    window.open("pocketapp63497://", "_self")
-    //window.open("https://tut.by", "_self")
     var vm = this;
     var words;
     vm.currentWord = '';
